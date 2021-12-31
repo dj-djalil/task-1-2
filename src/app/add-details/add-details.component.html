@@ -1,0 +1,66 @@
+
+<div class="container">
+
+  <form [formGroup]="exform" (ngSubmit)="onSubmit()" >
+
+    <label for="">first name <small class="text-danger">*</small></label>
+    <br>
+    <input formControlName="firstName" type="text">
+    <br>
+    <small *ngIf="exform.get('firstName').errors?.['required'] && exform.get('firstName').touched " class="text-danger">first name is required</small>
+    <small *ngIf="exform.get('firstName').errors?.['maxlength'] && exform.get('firstName').touched " class="text-danger">first name must be less than 25 char</small>
+
+    <br>
+    <label for="">last name <small class="text-danger">*</small></label>
+    <br>
+    <input  formControlName="lastName" type="text">
+    <br>
+    <small *ngIf="exform.get('lastName').errors?.['required'] && exform.get('lastName').touched" class="text-danger">last name is required </small>
+    <small *ngIf="exform.get('lastName').errors?.['maxlength'] && exform.get('lastName').touched" class="text-danger">last name  must be less than 25 char</small>
+
+    <br>
+    <label for="">email <small class="text-danger">*</small></label>
+    <br>
+    <input formControlName="email" type="text">
+    <br>
+    <small *ngIf="exform.get('email').invalid && exform.get('email').touched" class="text-danger">  valide email is required</small>
+    <br>
+    <label for="">password <small class="text-danger">*</small></label>
+    <br>
+    <input formControlName="password" type="password">
+    <br>
+    <small *ngIf="exform.get('password').invalid && exform.get('password').touched" class="text-danger">password is required</small>
+    <br>
+
+    <label for=""> confirm pasword <small class="text-danger">*</small></label>
+    <br>
+    <input formControlName="confirmPassword" type="password">
+    <br>
+    <small *ngIf="exform.get('confirmPassword').errors?.['isError']" class="text-danger">not matched</small>
+    <br>
+    <label for=""> company name <small class="text-danger">*</small></label>
+    <br>
+    <input formControlName="companyName" type="text">
+    <br>
+    <small *ngIf="exform.get('companyName').invalid && exform.get('companyName').touched" class="text-danger">company name is required</small>
+    <br>
+    <label for=""> Date of Joining <small class="text-danger">*</small></label>
+    <br>
+    <input formControlName="joiningDate" type="date" max="{{maxDate}}">
+    <br>
+    <small *ngIf="exform.get('joiningDate').invalid && exform.get('companyName').touched" class="text-danger">Date of joining is required</small>
+    <br>
+
+    <label for=""> Role Description <small class="text-danger">*</small></label>
+    <br>
+    <textarea  formControlName="roleDescription" class="form-control"></textarea>
+    <br>
+    <small *ngIf="exform.get('roleDescription').invalid && exform.get('roleDescription').touched" class="text-danger">Role description is required</small>
+    <br>
+    <button  class="btn btn-primary">Login</button>
+
+     </form>
+
+     <app-view-detail  [item]="data"></app-view-detail>
+</div>
+

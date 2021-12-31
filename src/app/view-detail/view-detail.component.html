@@ -1,0 +1,37 @@
+
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th scope="col">Company</th>
+        <th scope="col">Date of joining</th>
+        <th scope="col">Job Description</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="item">
+        <th >1</th>
+        <td >{{item.firstName}}</td>
+        <td >{{item.lastName}}</td>
+        <td >{{item.email}}</td>
+        <td >{{item.companyName}}</td>
+        <td >{{item.joiningDate}}</td>
+        <td *ngIf="readMore"  (click)="clickMoreLess()">{{item.roleDescription | maxLength : 10}}
+          <div id="less">read more</div>
+        </td>
+        <td *ngIf="readLess" (click)="clickMoreLess()">{{item.roleDescription }}
+          <div  id="more">read less</div>
+        </td>
+
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
